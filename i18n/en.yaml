@@ -11,6 +11,9 @@
 - id: switch_to_english
   translation: English
 
+- id: switch_to_russian
+  translation: Русский
+
 - id: current_language
   translation: Current language
 

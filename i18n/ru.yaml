@@ -1,0 +1,147 @@
+# Russian translations for Book of Kiro
+# Русские переводы для сайта Book of Kiro
+
+# Переключатель языка
+- id: language_switch
+  translation: Язык
+
+- id: switch_to_chinese
+  translation: 中文
+
+- id: switch_to_english
+  translation: English
+
+- id: switch_to_russian
+  translation: Русский
+
+- id: current_language
+  translation: Текущий язык
+
+- id: available_languages
+  translation: Доступные языки
+
+# Сообщения о статусе перевода
+- id: translation_missing
+  translation: Эта страница недоступна на русском языке. Показана английская версия.
+
+- id: help_translate
+  translation: Помогите нам с переводом
+
+- id: contribute_translation
+  translation: Внести вклад в перевод
+
+- id: page_in_english
+  translation: Эта страница доступна на английском
+
+- id: view_in_english
+  translation: Просмотреть на английском
+
+- id: page_in_chinese
+  translation: Эта страница доступна на китайском
+
+- id: view_in_chinese
+  translation: Просмотреть на китайском
+
+- id: translation_incomplete
+  translation: Этот перевод может быть неполным или устаревшим.
+
+- id: original_version
+  translation: Посмотреть оригинал
+
+# Навигация и элементы интерфейса
+- id: home
+  translation: Главная
+
+- id: documentation
+  translation: Документация
+
+- id: blog
+  translation: Блог
+
+- id: main_docs
+  translation: Основная документация
+
+- id: other_tools
+  translation: Другие инструменты
+
+- id: competitor_analysis
+  translation: Сравнительный анализ
+
+- id: getting_started
+  translation: Начало работы
+
+- id: community
+  translation: Сообщество
+
+- id: resources
+  translation: Ресурсы
+
+# Общие элементы интерфейса
+- id: read_more
+  translation: Читать далее
+
+- id: back_to_top
+  translation: Наверх
+
+- id: table_of_contents
+  translation: Содержание
+
+- id: on_this_page
+  translation: На этой странице
+
+- id: related_pages
+  translation: Связанные страницы
+
+- id: next_page
+  translation: Следующая страница
+
+- id: previous_page
+  translation: Предыдущая страница
+
+- id: page_not_found
+  translation: Страница не найдена
+
+- id: go_back
+  translation: Вернуться
+
+# Поиск
+- id: search_placeholder
+  translation: Поиск в документации...
+
+- id: search_results
+  translation: Результаты поиска
+
+- id: no_results
+  translation: Ничего не найдено
+
+- id: search_tip
+  translation: Попробуйте другие ключевые слова или проверьте правописание
+
+# Типы контента
+- id: guide
+  translation: Руководство
+
+- id: tutorial
+  translation: Учебник
+
+- id: reference
+  translation: Справочник
+
+- id: example
+  translation: Пример
+
+- id: comparison
+  translation: Сравнение
+
+# Даты и время
+- id: last_updated
+  translation: Последнее обновление
+
+- id: published_on
+  translation: Опубликовано
+
+- id: reading_time
+  translation: Время чтения
+
+- id: minutes
+  translation: минут
