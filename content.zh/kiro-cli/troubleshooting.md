@@ -7,6 +7,12 @@ weight: 35
 
 ## **CLI 常见错误及解决方案**
 
+### **如何使用 GitHub/Google 登录**
+
+执行 `kiro-cli login` 后即可选择是否通过 GitHub 或 Google 登录，并弹出系统浏览器完成登录过程。
+
+如果您使用没有图形界面的系统环境，执行 `kiro-cli login` 则只会显示 Builder ID 登录方式或企业登录方式，您可以选择 Builder ID 使用邮箱注册登录
+
 ### **执行 MCP Tool 时报错**
 
 报错：Improperly formed request 或 An unexpected error occurred
