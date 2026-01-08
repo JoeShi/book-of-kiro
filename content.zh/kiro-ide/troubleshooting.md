@@ -6,6 +6,18 @@ bookToc: true
 
 # **Kiro IDE 常见问题**
 
+## **Error streaming response: Cannot read properties of undefined (reading 'model')**
+
+请尝试重启 IDE 并检查系统网络状态
+
+GitHub Issue: https://github.com/kirodotdev/Kiro/issues/1147
+
+## **Error streaming response: EntryNotFound (FileSystemError)**
+
+请升级至最新版 IDE，并在新创建的会话中交互。旧版本的 Kiro 创建的聊天会话可能存在此问题。
+
+GitHub Issue: https://github.com/kirodotdev/Kiro/issues/3897
+
 ## **CPU/内存占用过高**
 
 1. 确保升级到 v0.6.0 版本以上
@@ -76,6 +88,8 @@ v0.5.0 版本以后，Kiro 会自动在 `Ctrl+L` 后添加一个空格，此时�
 
 ## **编辑文件失败**
 
+现象：使用 fsReplace / fsWrite / fsAppend 等类似工具编辑文件失败
+
 **原理**: Agent 在编辑文件时会先搜索一个 pattern，然后替换它为新的代码块。如果这个 pattern 在文件中有多个匹配或者没有匹配，agent 就会无法替换代码块从而报错。
 
 **通常导致这些问题的原因包括：**
@@ -87,6 +101,7 @@ v0.5.0 版本以后，Kiro 会自动在 `Ctrl+L` 后添加一个空格，此时�
 
 **缓解方式：**
 
+0. AI 会自动重试，如果多次重试无果，请使用如下方式手工干预
 1. 告诉 AI 使用 shell 命令或脚本进行文件编辑
 2. 让 AI 生成正确的或更加准确的搜索 Pattern 后重试
 3. 让 AI 说出它的思路，人工编辑文件
@@ -330,24 +345,43 @@ if (Test-Path $kiro) {
 
 ## **Improperly formed request**
 
-通常是网络切换或者不稳定导致，例如您一开始没有使用VPN，突然拨了 VPN。解决方案如下：
+通常是网络切换或者不稳定导致，例如您一开始没有使用 VPN，突然拨了 VPN。解决方案如下：
+
 1. 尝试告诉 AI “继续” 或者 “go on”。
 2. 如果您不需要当前会话的上下文，尝试重新开始会话。
 3. 如果您需要当前会话的上下文，尝试重启 Kiro 后，在当前会话输入 “继续” 或者 “go on”。
 
 ## **An unexpected error occurred**
 
-通常是网络切换或者不稳定导致，例如您一开始没有使用VPN，突然拨了 VPN。解决方案如下：
-1. 尝试告诉 AI “继续” 或者 “go on”。
-2. 如果您不需要当前会话的上下文，尝试重新开始会话。
-3. 如果您需要当前会话的上下文，尝试重启 Kiro 后，在当前会话输入 “继续” 或者 “go on”。
+“An unexpected error occurred, please retry.” 是我们在遇到未被识别或未被显式处理的异常时统一返回的兜底错误信息。这类错误可能由多种原因引起，在某些边界/异常状态下处理不完善。包括但不局限于以下几类：
+
+- 图片处理缺陷
+  - 在发送某些特定类型的图片时可以复现，例如将一条 Slack 消息与用户图片一起复制粘贴发送。日志里例如 “TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined”。
+  - 系统无法处理 HTTP/HTTPS 格式的图片链接，只能识别 Base64 编码格式
+- MCP 工具
+  - 如果 MCP tool 的描述超过 10240 字符会引发错误
+  - 有些 MCP 工具（例如 “pdf-reader-mcp”）生成了不正确的 input schema （malformed schema，Improperly formed request）给 Kiro
+- 网络连接问题
+  - 关闭 WiFi 或网络连接中断时发送请求会导致相同错误
+  - 使用 VPN 会导致该问题，许多 VPN 不稳定。
+
+对于以上错误，一旦遇到建议优先排查
 
 ## **Dispatch failure**
 
-通常是网络切换或者不稳定导致，例如您一开始没有使用VPN，突然拨了 VPN。解决方案如下：
+通常是网络切换或者不稳定导致，例如您一开始没有使用 VPN，突然拨了 VPN。解决方案如下：
+
 1. 尝试告诉 AI “继续” 或者 “go on”。
 2. 如果您不需要当前会话的上下文，尝试重新开始会话。
 3. 如果您需要当前会话的上下文，尝试重启 Kiro 后，在当前会话输入 “继续” 或者 “go on”。
+
+## **看不到积分用量**
+
+使用 Amazon Q Developer 订阅登录 Kiro 无法查看用量，请升级到 Kiro 订阅
+
+## **报错 read ECONNRESET**
+
+通常是网络切换或者不稳定导致
 
 ## **高级调试技巧**
 
