@@ -35,6 +35,8 @@ Windows 上通过 WSL 的方式来使用 Kiro CLI 使用的资源非常有限。
 
 请参考[相关博客](https://aws.amazon.com/cn/blogs/china/using-amazon-q-developer-to-build-an-enterprise-automated-code-review-process/)在 GitLab 中进行配置，GitHub 等其他仓库可参考博客中的流程。
 
+需要注意：由于 Amazon Q Developer CLI 升级到了 Kiro CLI，所以博客中的文件路径 `~/.local/share/amazon-q/` 应为 `~/.local/share/kiro-cli`
+
 ## **权限与安全**
 
 ### **CLI 有哪些 AWS 权限？**
